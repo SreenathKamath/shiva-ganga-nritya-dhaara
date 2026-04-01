@@ -1,0 +1,8 @@
+node_modules/
+build/
+.DS_Store
+Thumbs.db
+*.log
+.env
+app/frontend/tailwind-test.css
+app/frontend/src/tailwind.css
