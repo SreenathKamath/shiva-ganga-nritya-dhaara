@@ -2,8 +2,24 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  background: #fff8f0;
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.app-shell::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 120px 120px;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 92%);
+  pointer-events: none;
+  opacity: 0.2;
+  z-index: 0;
 }
 
 @keyframes fadeIn {
@@ -23,6 +39,25 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes floatPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glowSweep {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(150%);
   }
 }
 
@@ -50,8 +85,61 @@ body {
   animation-delay: 0.5s;
 }
 
+.animate-floatPulse {
+  animation: floatPulse 5s ease-in-out infinite;
+}
+
+.glass-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.neo-card {
+  background:
+    linear-gradient(180deg, rgba(18, 12, 28, 0.95), rgba(10, 8, 18, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 28px 60px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.section-orbit {
+  position: absolute;
+  inset: auto;
+  width: 320px;
+  height: 320px;
+  border-radius: 999px;
+  filter: blur(60px);
+  opacity: 0.16;
+  pointer-events: none;
+}
+
+.section-heading {
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.light-streak {
+  position: relative;
+  overflow: hidden;
+}
+
+.light-streak::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+  animation: glowSweep 7s linear infinite;
+}
+
 ::selection {
-  background: #8b1538;
+  background: #c6246e;
   color: #fff;
 }
 
@@ -60,10 +148,10 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #fff8f0;
+  background: #0b0812;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8b1538;
+  background: linear-gradient(180deg, #d71d69, #5d6dff);
   border-radius: 999px;
 }

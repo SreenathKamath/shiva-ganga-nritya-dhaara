@@ -20,23 +20,21 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-[#8B1538] to-[#6B0F2A] text-white">
-      <div className="container mx-auto px-4 py-16">
-        <div className="mb-12 grid gap-12 md:grid-cols-4">
-          <div className="md:col-span-2">
-            <div className="text-sm font-semibold uppercase tracking-[0.3em] text-[#D4AF37]">
-              Classical Dance
-            </div>
-            <div className="mt-2 text-2xl font-bold">{academyInfo.name}</div>
-            <p className="mt-4 max-w-md leading-relaxed text-white/80">
+    <footer className="relative px-4 pb-8 pt-14">
+      <div className="glass-panel mx-auto max-w-7xl rounded-[36px] px-8 py-12">
+        <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
+          <div>
+            <div className="section-heading text-xs text-[#d7a8ff]">Classical Dance</div>
+            <div className="mt-3 text-4xl font-semibold text-white">{academyInfo.name}</div>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-white/62">
               Preserving the divine art of classical Indian dance through disciplined teaching,
               cultural depth, and a warm learning environment.
             </p>
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg font-bold">Quick Links</h3>
-            <ul className="space-y-3 text-white/75">
+            <h3 className="text-3xl font-semibold text-white">Quick Links</h3>
+            <ul className="mt-5 space-y-4 text-white/65">
               {links.map((link) => (
                 <li key={link.id}>
                   <button type="button" onClick={() => scrollToSection(link.id)} className="hover:text-white">
@@ -48,8 +46,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 text-lg font-bold">Contact Us</h3>
-            <div className="space-y-3 text-white/75">
+            <h3 className="text-3xl font-semibold text-white">Contact</h3>
+            <div className="mt-5 space-y-4 text-white/65">
               <p>{academyInfo.contact.displayPhone}</p>
               <p>{academyInfo.contact.email}</p>
               <p>
@@ -59,7 +57,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 text-sm text-white/60">
+        <div className="mt-10 border-t border-white/10 pt-6 text-sm text-white/45">
           Copyright {currentYear} {academyInfo.name}. All rights reserved.
         </div>
       </div>

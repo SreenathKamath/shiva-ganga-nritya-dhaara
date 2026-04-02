@@ -22,84 +22,82 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    const onScroll = () => setIsScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
-        isScrolled ? "bg-[#fff8f0]/95 shadow-lg backdrop-blur" : "bg-transparent"
-      }`}
-    >
-      <div className="container mx-auto flex items-center justify-between px-4 py-4">
-        <button
-          type="button"
-          onClick={() => scrollToSection("home")}
-          className="text-left"
-        >
-          <div className="text-sm font-semibold uppercase tracking-[0.3em] text-[#8B1538]">
-            Classical Dance
-          </div>
-          <div className="text-lg font-bold text-gray-900">{academyInfo.name}</div>
-        </button>
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
+      <div
+        className={`mx-auto max-w-7xl rounded-[28px] border transition-all duration-300 ${
+          isScrolled
+            ? "glass-panel border-white/12 bg-[#120d1e]/82"
+            : "border-white/8 bg-[#120d1e]/45 backdrop-blur-xl"
+        }`}
+      >
+        <div className="flex items-center justify-between px-5 py-4 md:px-7">
+          <button type="button" onClick={() => scrollToSection("home")} className="text-left">
+            <div className="section-heading text-[0.7rem] text-[#d9a7ff]">Classical Dance</div>
+            <div className="mt-1 text-lg font-semibold text-white md:text-xl">{academyInfo.name}</div>
+          </button>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              onClick={() => scrollToSection(item.id)}
-              className="text-sm font-medium text-gray-700 transition-colors hover:text-[#8B1538]"
-            >
-              {item.label}
-            </button>
-          ))}
-          <Button className="rounded-full px-5" onClick={() => scrollToSection("contact")}>
-            Enroll Now
-          </Button>
-        </nav>
-
-        <button
-          type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#8B1538]/20 text-[#8B1538] md:hidden"
-          onClick={() => setIsOpen((open) => !open)}
-          aria-label="Toggle menu"
-        >
-          <span className="text-xl leading-none">{isOpen ? "x" : "="}</span>
-        </button>
-      </div>
-
-      {isOpen && (
-        <div className="border-t border-[#8B1538]/10 bg-[#fff8f0] md:hidden">
-          <div className="container mx-auto flex flex-col gap-2 px-4 py-4">
+          <nav className="hidden items-center gap-7 md:flex">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 type="button"
-                onClick={() => {
-                  setIsOpen(false);
-                  scrollToSection(item.id);
-                }}
-                className="rounded-lg px-3 py-2 text-left text-sm font-medium text-gray-700 transition-colors hover:bg-white hover:text-[#8B1538]"
+                onClick={() => scrollToSection(item.id)}
+                className="text-sm font-medium text-white/70 transition-colors hover:text-white"
               >
                 {item.label}
               </button>
             ))}
-            <Button
-              className="mt-2 rounded-full"
-              onClick={() => {
-                setIsOpen(false);
-                scrollToSection("contact");
-              }}
-            >
+            <Button className="px-6 py-3" onClick={() => scrollToSection("contact")}>
               Enroll Now
             </Button>
-          </div>
+          </nav>
+
+          <button
+            type="button"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden"
+            onClick={() => setIsOpen((value) => !value)}
+            aria-label="Toggle menu"
+          >
+            <span className="font-semibold">{isOpen ? "x" : "="}</span>
+          </button>
         </div>
-      )}
+
+        {isOpen && (
+          <div className="border-t border-white/10 px-5 pb-5 md:hidden">
+            <div className="flex flex-col gap-2 pt-4">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  type="button"
+                  onClick={() => {
+                    setIsOpen(false);
+                    scrollToSection(item.id);
+                  }}
+                  className="rounded-2xl px-4 py-3 text-left text-white/80 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <Button
+                className="mt-2"
+                onClick={() => {
+                  setIsOpen(false);
+                  scrollToSection("contact");
+                }}
+              >
+                Enroll Now
+              </Button>
+            </div>
+          </div>
+        )}
+      </div>
     </header>
   );
 }

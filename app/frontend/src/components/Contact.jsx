@@ -34,33 +34,34 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="bg-gradient-to-b from-white to-[#FFF8F0] py-20">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="relative py-28">
+      <div className="section-orbit left-[8%] top-[100px] bg-[#d2296d]" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-16 text-center">
-          <span className="rounded-full bg-[#8B1538]/10 px-4 py-2 text-sm font-semibold uppercase tracking-wider text-[#8B1538]">
+          <span className="glass-panel section-heading rounded-full px-5 py-3 text-xs text-[#d7a8ff]">
             Get in Touch
           </span>
-          <h2 className="mt-5 text-4xl font-bold text-gray-900 md:text-5xl">
-            Begin Your <span className="text-[#8B1538]">Dance Journey</span>
+          <h2 className="mt-6 text-5xl font-semibold text-white md:text-6xl">
+            Begin Your <span className="text-[#ff76bf]">Dance Journey</span>
           </h2>
-          <div className="mx-auto mt-4 h-1 w-24 bg-[#D4AF37]" />
         </div>
 
-        <div className="mx-auto grid max-w-5xl gap-12 md:grid-cols-5">
-          <div className="space-y-6 md:col-span-2">
-            <div className="rounded-3xl bg-white p-6 shadow-lg">
-              <h3 className="mb-4 text-2xl font-bold text-gray-900">Contact Information</h3>
-              <div className="space-y-4 text-gray-600">
+        <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="space-y-6">
+            <div className="neo-card rounded-[30px] p-7">
+              <div className="section-heading text-xs text-[#7b7cff]">Contact Channel</div>
+              <h3 className="mt-4 text-4xl font-semibold text-white">Reach the Academy</h3>
+              <div className="mt-8 space-y-5 text-base leading-8 text-white/68">
                 <p>
-                  <span className="font-semibold text-gray-900">Phone:</span>{" "}
+                  <span className="text-white">Phone:</span>{" "}
                   <a href={`tel:${academyInfo.contact.phone}`}>{academyInfo.contact.displayPhone}</a>
                 </p>
                 <p>
-                  <span className="font-semibold text-gray-900">Email:</span>{" "}
+                  <span className="text-white">Email:</span>{" "}
                   <a href={`mailto:${academyInfo.contact.email}`}>{academyInfo.contact.email}</a>
                 </p>
                 <p>
-                  <span className="font-semibold text-gray-900">Location:</span>{" "}
+                  <span className="text-white">Location:</span>{" "}
                   {academyInfo.contact.location.address}, {academyInfo.contact.location.city}
                 </p>
               </div>
@@ -70,52 +71,56 @@ export default function Contact() {
               href={`https://wa.me/${academyInfo.contact.whatsapp}`}
               target="_blank"
               rel="noreferrer"
-              className="block rounded-3xl bg-gradient-to-br from-[#25D366] to-[#128C7E] p-6 text-white shadow-lg"
+              className="block rounded-[30px] bg-[linear-gradient(135deg,#0fd87e_0%,#0ea86f_100%)] p-7 text-white shadow-[0_24px_48px_rgba(15,216,126,0.22)]"
             >
-              <h4 className="text-lg font-bold">Quick enquiry via WhatsApp</h4>
-              <p className="mt-2 text-sm text-white/90">Get a faster response to admission questions.</p>
+              <div className="section-heading text-xs text-white/70">Instant Connection</div>
+              <h4 className="mt-4 text-3xl font-semibold">Quick enquiry via WhatsApp</h4>
+              <p className="mt-4 text-white/90">Get a faster response to admission questions.</p>
             </a>
           </div>
 
-          <div className="md:col-span-3">
-            <form onSubmit={handleSubmit} className="rounded-3xl bg-white p-8 shadow-xl">
-              <h3 className="mb-6 text-2xl font-bold text-gray-900">Send us a Message</h3>
-              <div className="space-y-4">
-                <Input
-                  name="name"
-                  placeholder="Full name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Email address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-                <Input
-                  name="phone"
-                  placeholder="Phone number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  required
-                />
-                <Textarea
-                  name="message"
-                  rows={5}
-                  placeholder="Tell us about your interest in learning classical dance..."
-                  value={formData.message}
-                  onChange={handleChange}
-                />
-                <Button type="submit" className="w-full rounded-xl py-3 text-base" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                </Button>
-              </div>
-            </form>
-          </div>
+          <form onSubmit={handleSubmit} className="neo-card rounded-[34px] p-8 md:p-10">
+            <div className="section-heading text-xs text-[#d7a8ff]">Admission Form</div>
+            <h3 className="mt-4 text-5xl font-semibold text-white">Send us a message</h3>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
+              <Input
+                name="name"
+                placeholder="Full name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+                className="md:col-span-1"
+              />
+              <Input
+                name="phone"
+                placeholder="Phone number"
+                value={formData.phone}
+                onChange={handleChange}
+                required
+                className="md:col-span-1"
+              />
+              <Input
+                name="email"
+                type="email"
+                placeholder="Email address"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                className="md:col-span-2"
+              />
+              <Textarea
+                name="message"
+                rows={6}
+                placeholder="Tell us about your interest in learning classical dance..."
+                value={formData.message}
+                onChange={handleChange}
+                className="md:col-span-2"
+              />
+            </div>
+            <Button type="submit" className="mt-6 w-full py-4 text-base" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Send Message"}
+            </Button>
+          </form>
         </div>
       </div>
     </section>

@@ -76,7 +76,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF8F0] text-gray-900">
+    <div className="app-shell text-white">
       <Navbar />
       <main>
         <Hero />
@@ -109,7 +109,7 @@ function App() {
         href={whatsAppLink}
         target="_blank"
         rel="noreferrer"
-        className="fixed bottom-8 left-8 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-2xl transition-transform duration-300 hover:scale-105 hover:bg-[#128C7E]"
+        className="fixed bottom-8 left-8 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[linear-gradient(135deg,#1ae081_0%,#08a365_100%)] text-white shadow-[0_18px_40px_rgba(26,224,129,0.28)] transition-transform duration-300 hover:scale-105"
         aria-label="Chat on WhatsApp"
       >
         <svg viewBox="0 0 24 24" fill="currentColor" className="h-8 w-8" aria-hidden="true">

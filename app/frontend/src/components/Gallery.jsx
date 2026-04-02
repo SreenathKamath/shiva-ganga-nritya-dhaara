@@ -5,16 +5,15 @@ export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
-    <section id="gallery" className="bg-white py-20">
-      <div className="container mx-auto px-4">
+    <section id="gallery" className="relative py-28">
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-16 text-center">
-          <span className="rounded-full bg-[#8B1538]/10 px-4 py-2 text-sm font-semibold uppercase tracking-wider text-[#8B1538]">
+          <span className="glass-panel section-heading rounded-full px-5 py-3 text-xs text-[#d7a8ff]">
             Our Moments
           </span>
-          <h2 className="mt-5 text-4xl font-bold text-gray-900 md:text-5xl">
-            Gallery <span className="text-[#8B1538]">Showcase</span>
+          <h2 className="mt-6 text-5xl font-semibold text-white md:text-6xl">
+            Gallery <span className="text-[#ff76bf]">Showcase</span>
           </h2>
-          <div className="mx-auto mt-4 h-1 w-24 bg-[#D4AF37]" />
         </div>
 
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
@@ -23,21 +22,21 @@ export default function Gallery() {
               key={image.id}
               type="button"
               onClick={() => setSelectedImage(image)}
-              className={`group relative overflow-hidden rounded-2xl text-left shadow-lg ${
+              className={`group neo-card relative overflow-hidden rounded-[28px] text-left ${
                 index === 0 || index === 5 ? "md:col-span-2" : ""
               }`}
             >
               <img
                 src={image.url}
                 alt={image.caption}
-                className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
-                  index === 0 || index === 5 ? "h-[360px]" : "h-[240px]"
+                className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+                  index === 0 || index === 5 ? "h-[400px]" : "h-[280px]"
                 }`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/75 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
-                <p className="font-semibold">{image.caption}</p>
-                <p className="mt-1 text-sm uppercase tracking-wider text-white/75">{image.category}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#09070f] via-transparent to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-6">
+                <p className="text-3xl font-semibold text-white">{image.caption}</p>
+                <p className="mt-2 section-heading text-[0.68rem] text-white/45">{image.category}</p>
               </div>
             </button>
           ))}
@@ -46,21 +45,21 @@ export default function Gallery() {
 
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-[#06050b]/95 p-4 backdrop-blur"
           onClick={() => setSelectedImage(null)}
         >
-          <div className="max-w-5xl" onClick={(event) => event.stopPropagation()}>
+          <div className="max-w-6xl" onClick={(event) => event.stopPropagation()}>
             <button
               type="button"
               onClick={() => setSelectedImage(null)}
-              className="mb-4 rounded-full bg-white/10 px-4 py-2 text-sm text-white"
+              className="glass-panel mb-5 rounded-full px-5 py-3 text-sm text-white"
             >
-              Close
+              Close Preview
             </button>
             <img
               src={selectedImage.url}
               alt={selectedImage.caption}
-              className="max-h-[80vh] w-full rounded-2xl object-contain"
+              className="max-h-[82vh] w-full rounded-[30px] object-contain"
             />
           </div>
         </div>

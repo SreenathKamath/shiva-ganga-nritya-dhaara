@@ -46,42 +46,36 @@ function SectionIcon({ type }) {
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-[radial-gradient(circle_at_top,_rgba(139,21,56,0.06),_transparent_40%),linear-gradient(to_bottom,_#ffffff,_#fff8f0)] py-24">
-      <div className="container mx-auto px-4">
+    <section className="relative py-28">
+      <div className="section-orbit right-[8%] top-[120px] bg-[#7b1df4]" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-16 text-center">
-          <span className="rounded-full bg-[#8B1538]/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-[#8B1538]">
+          <span className="glass-panel section-heading rounded-full px-5 py-3 text-xs text-[#d7a8ff]">
             Why Choose Us
           </span>
-          <h2 className="mt-5 text-4xl font-bold text-gray-900 md:text-5xl">
-            Why <span className="text-[#8B1538]">Shiva Ganga Nritya Dhaara</span>
+          <h2 className="mt-6 text-5xl font-semibold text-white md:text-6xl">
+            Why <span className="text-[#ff76bf]">Shiva Ganga Nritya Dhaara</span>
           </h2>
-          <div className="mx-auto mt-4 h-1 w-24 bg-[#D4AF37]" />
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
-            Experience the perfect balance of traditional depth, personal guidance, and a
-            modern learning format that supports steady progress.
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/64">
+            Experience the perfect balance of traditional depth, personal guidance, and a modern
+            learning format that supports steady progress.
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-6xl gap-8 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 xl:grid-cols-3">
           {whyChooseUs.map((item, index) => (
             <article
               key={item.title}
-              className={`group relative overflow-hidden rounded-[30px] border bg-[linear-gradient(180deg,_rgba(255,251,247,1)_0%,_rgba(255,255,255,1)_100%)] p-9 shadow-[0_18px_50px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgba(139,21,56,0.14)] ${
-                index === 2
-                  ? "border-[#8B1538]/70"
-                  : "border-[#8B1538]/12"
+              className={`group neo-card relative overflow-hidden rounded-[30px] p-8 transition-all duration-300 hover:-translate-y-1 ${
+                index === 2 ? "ring-1 ring-[#d2296d]/45" : ""
               }`}
             >
-              <div className="absolute right-7 top-7 h-5 w-5 rounded-full bg-[#D4AF37] opacity-90" />
-              <div className="mb-7 flex h-18 w-18 items-center justify-center rounded-[20px] bg-[#8B1538] text-white shadow-[0_14px_24px_rgba(139,21,56,0.24)] transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-105">
+              <div className="absolute right-6 top-6 h-4 w-4 rounded-full bg-[#ffd05c]" />
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-[22px] bg-[linear-gradient(135deg,#d2296d,#7b1df4)] text-white shadow-[0_16px_34px_rgba(210,41,109,0.28)] transition-transform duration-300 group-hover:-rotate-6">
                 <SectionIcon type={item.icon} />
               </div>
-              <h3 className="mb-4 text-[2rem] font-bold leading-tight text-slate-900">
-                {item.title}
-              </h3>
-              <p className="max-w-[28ch] text-[1.08rem] leading-9 text-slate-600">
-                {item.description}
-              </p>
+              <h3 className="text-4xl font-semibold text-white">{item.title}</h3>
+              <p className="mt-5 text-base leading-8 text-white/62">{item.description}</p>
             </article>
           ))}
         </div>

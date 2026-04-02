@@ -35,81 +35,74 @@ function DetailIcon({ type }) {
 
 export default function Classes() {
   return (
-    <section id="classes" className="bg-gradient-to-b from-white to-[#FFF8F0] py-24">
-      <div className="container mx-auto px-4">
+    <section id="classes" className="relative py-28">
+      <div className="section-orbit left-[-80px] top-[160px] bg-[#4f6bff]" />
+      <div className="container relative z-10 mx-auto px-4">
         <div className="mb-16 text-center">
-          <span className="rounded-full bg-[#8B1538]/10 px-5 py-2 text-sm font-semibold uppercase tracking-[0.22em] text-[#8B1538]">
+          <span className="glass-panel section-heading rounded-full px-5 py-3 text-xs text-[#d7a8ff]">
             Class Details
           </span>
-          <h2 className="mt-5 text-4xl font-bold text-gray-900 md:text-5xl">
-            Flexible <span className="text-[#8B1538]">Learning Options</span>
+          <h2 className="mt-6 text-5xl font-semibold text-white md:text-6xl">
+            Flexible <span className="text-[#7b7cff]">Learning Options</span>
           </h2>
-          <div className="mx-auto mt-4 h-1 w-24 bg-[#D4AF37]" />
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-relaxed text-slate-600">
+          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-white/64">
             Choose the mode that suits your schedule and learning preference without losing
             structure, discipline, or personal guidance.
           </p>
         </div>
 
-        <div className="mx-auto max-w-6xl space-y-12">
+        <div className="mx-auto max-w-6xl space-y-8">
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="rounded-[30px] bg-white p-9 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+            <div className="neo-card rounded-[30px] p-8">
               <div className="flex items-start gap-5">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#8B1538]/10 text-[#8B1538]">
+                <div className="glass-panel flex h-16 w-16 items-center justify-center rounded-[22px] text-[#ff76bf]">
                   <DetailIcon type="calendar" />
                 </div>
                 <div>
-                  <h3 className="text-[2rem] font-bold leading-tight text-slate-900">Class Days</h3>
-                  <p className="text-lg text-slate-600">Weekend batches</p>
+                  <h3 className="text-4xl font-semibold text-white">Class Days</h3>
+                  <p className="mt-2 text-white/56">Weekend batches</p>
                 </div>
               </div>
               <div className="mt-7 flex flex-wrap gap-3">
                 {classDetails.schedule.days.map((day) => (
                   <span
                     key={day}
-                    className="rounded-xl bg-[#8B1538] px-5 py-3 text-base font-semibold text-white shadow-[0_10px_20px_rgba(139,21,56,0.18)]"
+                    className="rounded-2xl bg-[linear-gradient(135deg,#d2296d,#8b1538)] px-5 py-3 text-sm font-semibold text-white"
                   >
                     {day}
                   </span>
                 ))}
               </div>
             </div>
-            <div className="rounded-[30px] bg-white p-9 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
+
+            <div className="neo-card rounded-[30px] p-8">
               <div className="flex items-start gap-5">
-                <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#8B1538]/10 text-[#8B1538]">
+                <div className="glass-panel flex h-16 w-16 items-center justify-center rounded-[22px] text-[#7b7cff]">
                   <DetailIcon type="clock" />
                 </div>
                 <div>
-                  <h3 className="text-[2rem] font-bold leading-tight text-slate-900">Timing</h3>
-                  <p className="text-lg text-slate-600">Convenient evening slots</p>
+                  <h3 className="text-4xl font-semibold text-white">Timing</h3>
+                  <p className="mt-2 text-white/56">Convenient evening slots</p>
                 </div>
               </div>
-              <p className="mt-7 text-[1.08rem] text-slate-700">{classDetails.schedule.timing}</p>
+              <p className="mt-7 text-lg leading-8 text-white/72">{classDetails.schedule.timing}</p>
             </div>
           </div>
 
           <div className="grid gap-6 lg:grid-cols-2">
             {classDetails.modes.map((mode) => (
-              <article
-                key={mode.type}
-                className="relative overflow-hidden rounded-[30px] bg-white p-9 shadow-[0_18px_50px_rgba(15,23,42,0.08)]"
-              >
-                <div className="absolute -right-5 -top-5 h-28 w-28 rounded-full bg-[#8B1538]/7" />
+              <article key={mode.type} className="neo-card relative overflow-hidden rounded-[30px] p-8">
+                <div className="absolute -right-8 -top-8 h-28 w-28 rounded-full bg-white/[0.04]" />
                 <div className="relative flex items-start gap-5">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#8B1538] text-white shadow-[0_14px_24px_rgba(139,21,56,0.24)]">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-[22px] bg-[linear-gradient(135deg,#d2296d,#7b1df4)] text-white">
                     <DetailIcon type={mode.type === "Offline" ? "pin" : "monitor"} />
                   </div>
                   <div>
-                    <h3 className="text-[2rem] font-bold leading-tight text-slate-900">
-                      <span className={mode.type === "Online" ? "text-[#8B1538]" : ""}>
-                        {mode.type}
-                      </span>{" "}
-                      Classes
+                    <h3 className="text-4xl font-semibold text-white">
+                      {mode.type} <span className="text-white/65">Classes</span>
                     </h3>
-                    <p className="mt-5 max-w-[24ch] text-[1.08rem] leading-9 text-slate-700">
-                      {mode.description}
-                    </p>
-                    <p className="mt-4 text-sm font-medium uppercase tracking-[0.12em] text-[#8B1538]/70">
+                    <p className="mt-5 text-lg leading-8 text-white/68">{mode.description}</p>
+                    <p className="mt-4 section-heading text-[0.68rem] text-[#d7a8ff]">
                       {mode.accent}
                     </p>
                   </div>
@@ -118,13 +111,13 @@ export default function Classes() {
             ))}
           </div>
 
-          <div className="rounded-[34px] bg-gradient-to-br from-[#8B1538] to-[#7C1435] p-10 text-white shadow-[0_24px_60px_rgba(139,21,56,0.24)] md:p-12">
-            <h3 className="mb-8 text-center text-3xl font-bold md:text-4xl">What You Get</h3>
-            <div className="grid gap-4 md:grid-cols-2">
+          <div className="rounded-[34px] bg-[linear-gradient(135deg,#30081f_0%,#5b0e3d_40%,#421080_100%)] p-10 shadow-[0_30px_60px_rgba(0,0,0,0.32)]">
+            <h3 className="text-center text-5xl font-semibold text-white">What You Get</h3>
+            <div className="mt-8 grid gap-4 md:grid-cols-2">
               {classDetails.features.map((feature) => (
                 <div
                   key={feature}
-                  className="rounded-2xl bg-white/8 px-5 py-4 text-lg font-medium leading-relaxed shadow-inner shadow-white/5"
+                  className="rounded-[22px] border border-white/8 bg-white/[0.08] px-5 py-4 text-base leading-8 text-white/85"
                 >
                   {feature}
                 </div>
@@ -132,13 +125,13 @@ export default function Classes() {
             </div>
           </div>
 
-          <div className="rounded-[30px] bg-white p-8 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
-            <h3 className="mb-3 text-3xl font-bold text-slate-900">Our Location</h3>
-            <p className="mb-6 text-lg text-slate-600">
+          <div className="neo-card rounded-[30px] p-8">
+            <h3 className="text-4xl font-semibold text-white">Our Location</h3>
+            <p className="mt-4 text-lg text-white/62">
               {academyInfo.contact.location.address}, {academyInfo.contact.location.city},{" "}
               {academyInfo.contact.location.state}
             </p>
-            <div className="overflow-hidden rounded-[24px]">
+            <div className="mt-8 overflow-hidden rounded-[26px] border border-white/8">
               <iframe
                 src={academyInfo.contact.location.mapUrl}
                 width="100%"
@@ -153,9 +146,7 @@ export default function Classes() {
           </div>
 
           <div className="text-center">
-            <Button className="rounded-full px-9 py-4 text-base shadow-[0_14px_28px_rgba(139,21,56,0.18)]">
-              Reserve Your Spot Today
-            </Button>
+            <Button className="px-9 py-4 text-base">Reserve Your Spot Today</Button>
           </div>
         </div>
       </div>

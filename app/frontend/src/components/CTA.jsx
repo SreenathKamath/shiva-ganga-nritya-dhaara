@@ -9,40 +9,33 @@ function scrollToContact() {
 
 export default function CTA() {
   return (
-    <section className="relative overflow-hidden py-20">
+    <section className="relative overflow-hidden px-4 py-28">
       <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1746983047239-cb817eba7d05?auto=format&fit=crop&w=1600&q=80"
           alt=""
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#8B1538]/95 via-[#8B1538]/88 to-[#6B0F2A]/95" />
+        <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(7,5,14,0.92),rgba(61,5,53,0.8),rgba(28,14,82,0.84))]" />
       </div>
 
-      <div className="container relative z-10 mx-auto px-4">
-        <div className="mx-auto max-w-4xl text-center text-white">
-          <span className="inline-flex rounded-full bg-[#D4AF37] px-4 py-2 text-sm font-medium">
-            Limited seats available
+      <div className="container relative z-10 mx-auto">
+        <div className="glass-panel mx-auto max-w-5xl rounded-[36px] px-8 py-14 text-center md:px-14">
+          <span className="section-heading rounded-full bg-white/8 px-5 py-3 text-xs text-[#d7a8ff]">
+            Enrollment Signal Open
           </span>
-          <h2 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
+          <h2 className="mt-8 text-5xl font-semibold leading-tight text-white md:text-7xl">
             Begin your dance journey today
           </h2>
-          <p className="mx-auto mt-6 max-w-2xl text-xl text-white/90">
+          <p className="mx-auto mt-8 max-w-3xl text-xl leading-9 text-white/72">
             Experience the grace, discipline, and beauty of classical Indian dance with guided,
-            structured training.
+            structured training in a more immersive academy experience.
           </p>
           <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <Button
-              className="rounded-full bg-white px-8 py-4 text-base text-[#8B1538] hover:bg-gray-100"
-              onClick={scrollToContact}
-            >
+            <Button className="px-8 py-4 text-base" onClick={scrollToContact}>
               Enroll Now
             </Button>
-            <Button
-              variant="outline"
-              className="rounded-full border-white px-8 py-4 text-base text-white hover:bg-white hover:text-[#8B1538]"
-              onClick={scrollToContact}
-            >
+            <Button variant="outline" className="px-8 py-4 text-base" onClick={scrollToContact}>
               Book Free Trial
             </Button>
           </div>
