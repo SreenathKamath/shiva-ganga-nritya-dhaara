@@ -1,6 +1,18 @@
 import { Button } from "./ui/button";
 import { academyInfo, classDetails } from "../data/mock";
 
+function getMapEmbedUrl(location) {
+  if (location.mapEmbedUrl) {
+    return location.mapEmbedUrl;
+  }
+
+  const address = [location.address, location.city, location.state, location.country]
+    .filter(Boolean)
+    .join(", ");
+
+  return `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`;
+}
+
 function DetailIcon({ type }) {
   const common = "h-8 w-8";
   const icons = {
@@ -34,6 +46,9 @@ function DetailIcon({ type }) {
 }
 
 export default function Classes() {
+  const location = academyInfo.contact.location;
+  const mapEmbedUrl = getMapEmbedUrl(location);
+
   return (
     <section id="classes" className="relative py-28">
       <div className="section-orbit left-[-80px] top-[160px] bg-[#4f6bff]" />
@@ -128,12 +143,11 @@ export default function Classes() {
           <div className="neo-card rounded-[30px] p-8">
             <h3 className="text-4xl font-semibold text-white">Our Location</h3>
             <p className="mt-4 text-lg text-white/62">
-              {academyInfo.contact.location.address}, {academyInfo.contact.location.city},{" "}
-              {academyInfo.contact.location.state}
+              {location.address}, {location.city}, {location.state}
             </p>
             <div className="mt-8 overflow-hidden rounded-[26px] border border-white/8">
               <iframe
-                src={academyInfo.contact.location.mapUrl}
+                src={mapEmbedUrl}
                 width="100%"
                 height="320"
                 style={{ border: 0 }}
@@ -142,6 +156,13 @@ export default function Classes() {
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Academy location"
               />
+            </div>
+            <div className="mt-6">
+              <a href={location.mapUrl} target="_blank" rel="noreferrer">
+                <Button variant="outline" className="px-7 py-3 text-sm">
+                  Open in Google Maps
+                </Button>
+              </a>
             </div>
           </div>
 

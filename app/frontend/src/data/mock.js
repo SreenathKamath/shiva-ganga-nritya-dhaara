@@ -7,14 +7,15 @@ export const academyInfo = {
     phone: "9037786943",
     displayPhone: "90377 86943",
     whatsapp: "919037786943",
-    email: "info@shivaganganritya.com",
+    email: "rohinipshenoy123@gmail.com",
     location: {
       address: "Shivalayam Road, Karanakodam, Thammanam",
       city: "Ernakulam",
       state: "Kerala",
       country: "India",
-      mapUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.2!2d76.3!3d9.98!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwNTgnNDguMCJOIDc2wrAxOCcwMC4wIkU!5e0!3m2!1sen!2sin!4v1234567890",
+      mapUrl: "https://share.google/YLoAVPYp9NM1tbo7W",
+      mapEmbedUrl:
+        "https://www.google.com/maps?q=Shivalayam%20Road%2C%20Karanakodam%2C%20Thammanam%2C%20Ernakulam%2C%20Kerala&output=embed",
     },
   },
 };
@@ -24,7 +25,7 @@ export const instructor = {
   qualifications: ["BA Bharatanatyam", "BSS Certified Instructor"],
   experience: "Since 2020",
   bio: "A passionate custodian of classical Indian dance forms, Rohini P Shenoy brings the rich heritage of Bharatanatyam and Mohiniyattam to life. With formal training and certification, she is dedicated to preserving and propagating these divine art forms through patient, personal instruction.",
-  image: "https://images.unsplash.com/photo-1707198135268-3deea076b4cb?auto=format&fit=crop&w=900&q=80",
+  image: "/assets/images/instructors/instructor.jpeg",
 };
 
 export const danceStyles = [
