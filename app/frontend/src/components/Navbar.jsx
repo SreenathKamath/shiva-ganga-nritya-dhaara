@@ -38,9 +38,20 @@ export default function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between px-5 py-4 md:px-7">
-          <button type="button" onClick={() => scrollToSection("home")} className="text-left">
-            <div className="section-heading text-[0.7rem] text-[#d9a7ff]">Classical Dance</div>
-            <div className="mt-1 text-lg font-semibold text-white md:text-xl">{academyInfo.name}</div>
+          <button
+            type="button"
+            onClick={() => scrollToSection("home")}
+            className="flex min-w-0 items-center gap-3 text-left"
+          >
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/12 bg-white/95 p-1.5 shadow-[0_12px_30px_rgba(0,0,0,0.28)]">
+              <img src={academyInfo.logo} alt="" className="h-full w-full object-contain" />
+            </span>
+            <span className="min-w-0">
+              <span className="section-heading block text-[0.65rem] text-[#d9a7ff]">Classical Dance</span>
+              <span className="mt-1 block truncate text-base font-semibold text-white md:text-xl">
+                {academyInfo.name}
+              </span>
+            </span>
           </button>
 
           <nav className="hidden items-center gap-7 md:flex">

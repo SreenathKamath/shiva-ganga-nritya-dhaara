@@ -24,8 +24,17 @@ export default function Footer() {
       <div className="glass-panel mx-auto max-w-7xl rounded-[36px] px-8 py-12">
         <div className="grid gap-12 md:grid-cols-[1.2fr_0.8fr_0.8fr]">
           <div>
-            <div className="section-heading text-xs text-[#d7a8ff]">Classical Dance</div>
-            <div className="mt-3 text-4xl font-semibold text-white">{academyInfo.name}</div>
+            <div className="flex items-center gap-4">
+              <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-3xl border border-white/12 bg-white/95 p-2 shadow-[0_16px_36px_rgba(0,0,0,0.28)]">
+                <img src={academyInfo.logo} alt="" className="h-full w-full object-contain" />
+              </span>
+              <span>
+                <span className="section-heading block text-xs text-[#d7a8ff]">Classical Dance</span>
+                <span className="mt-2 block text-4xl font-semibold leading-none text-white">
+                  {academyInfo.name}
+                </span>
+              </span>
+            </div>
             <p className="mt-5 max-w-xl text-lg leading-8 text-white/62">
               Preserving the divine art of classical Indian dance through disciplined teaching,
               cultural depth, and a warm learning environment.

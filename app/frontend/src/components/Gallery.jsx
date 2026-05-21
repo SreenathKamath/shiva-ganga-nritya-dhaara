@@ -3,6 +3,7 @@ import { galleryImages } from "../data/mock";
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState(null);
+  const isCompactGallery = galleryImages.length <= 2;
 
   return (
     <section id="gallery" className="relative py-28">
@@ -16,21 +17,25 @@ export default function Gallery() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+        <div className={`grid gap-4 ${isCompactGallery ? "md:grid-cols-2" : "grid-cols-2 md:grid-cols-3"}`}>
           {galleryImages.map((image, index) => (
             <button
               key={image.id}
               type="button"
               onClick={() => setSelectedImage(image)}
               className={`group neo-card relative overflow-hidden rounded-[28px] text-left ${
-                index === 0 || index === 5 ? "md:col-span-2" : ""
+                !isCompactGallery && (index === 0 || index === 5) ? "md:col-span-2" : ""
               }`}
             >
               <img
                 src={image.url}
                 alt={image.caption}
                 className={`w-full object-cover transition-transform duration-700 group-hover:scale-105 ${
-                  index === 0 || index === 5 ? "h-[400px]" : "h-[280px]"
+                  isCompactGallery
+                    ? "h-[340px] md:h-[520px]"
+                    : index === 0 || index === 5
+                      ? "h-[400px]"
+                      : "h-[280px]"
                 }`}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#09070f] via-transparent to-transparent" />

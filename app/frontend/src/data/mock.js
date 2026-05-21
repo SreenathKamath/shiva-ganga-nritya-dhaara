@@ -3,6 +3,7 @@ export const academyInfo = {
   tagline: "Where Tradition Meets Grace",
   subtitle: "Nurturing the Art of Classical Dance Since 2020",
   established: "2020",
+  logo: "/assets/images/logo/logo.png",
   contact: {
     phone: "9037786943",
     displayPhone: "90377 86943",
@@ -13,9 +14,9 @@ export const academyInfo = {
       city: "Ernakulam",
       state: "Kerala",
       country: "India",
-      mapUrl: "https://share.google/YLoAVPYp9NM1tbo7W",
+      mapUrl: "https://maps.app.goo.gl/2UNmHE2ve3Kdo5TG6",
       mapEmbedUrl:
-        "https://www.google.com/maps?q=Shivalayam%20Road%2C%20Karanakodam%2C%20Thammanam%2C%20Ernakulam%2C%20Kerala&output=embed",
+        "https://www.google.com/maps?q=Shiva%20Ganga%20Nritya%20Dhaara%2C%20Shivalayam%20Road%2C%20Karanakodam%2C%20Thammanam%2C%20Ernakulam%2C%20Kerala&output=embed",
     },
   },
 };
@@ -165,46 +166,22 @@ export const testimonials = [
 export const galleryImages = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1746983047239-cb817eba7d05?auto=format&fit=crop&w=1200&q=80",
-    caption: "Traditional Bharatanatyam Performance",
+    url: "/assets/images/gallery/background_main.webp",
+    caption: "Shiva Ganga Nritya Dhaara Moments",
     category: "performance",
   },
   {
     id: 2,
-    url: "https://images.pexels.com/photos/5150546/pexels-photo-5150546.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    caption: "Guided Practice Session",
+    url: "/assets/images/gallery/background.webp",
+    caption: "Classical Dance Practice",
     category: "practice",
-  },
-  {
-    id: 3,
-    url: "https://images.pexels.com/photos/33638423/pexels-photo-33638423.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    caption: "Solo Stage Presence",
-    category: "performance",
-  },
-  {
-    id: 4,
-    url: "https://images.pexels.com/photos/11686640/pexels-photo-11686640.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    caption: "Group Rehearsal",
-    category: "practice",
-  },
-  {
-    id: 5,
-    url: "https://images.unsplash.com/photo-1688820661462-a44e4b2770e8?auto=format&fit=crop&w=1200&q=80",
-    caption: "Annual Performance",
-    category: "performance",
-  },
-  {
-    id: 6,
-    url: "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1200&q=80",
-    caption: "Expressive Stage Work",
-    category: "performance",
   },
 ];
 
 export const heroImages = [
+  "/assets/images/gallery/background_main.webp",
+  "/assets/images/gallery/background.webp",
   "https://images.unsplash.com/photo-1746983047239-cb817eba7d05?auto=format&fit=crop&w=1600&q=80",
-  "https://images.pexels.com/photos/33638423/pexels-photo-33638423.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.unsplash.com/photo-1688820661462-a44e4b2770e8?auto=format&fit=crop&w=1600&q=80",
 ];
 
 export const submitEnquiry = async (formData) =>

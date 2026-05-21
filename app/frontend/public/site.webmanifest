@@ -1,0 +1,22 @@
+{
+  "name": "Shiva Ganga Nritya Dhaara",
+  "short_name": "SGND",
+  "description": "Classical dance academy for Bharatanatyam, Mohiniyattam, semi-classical, and cinematic dance.",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "theme_color": "#09070f",
+  "background_color": "#09070f",
+  "display": "standalone"
+}

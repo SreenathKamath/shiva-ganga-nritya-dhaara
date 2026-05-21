@@ -3,7 +3,20 @@ import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { academyInfo, submitEnquiry } from "../data/mock";
+import { academyInfo } from "../data/mock";
+
+function buildWhatsAppMessage(data) {
+  return [
+    "Hello! I am interested in learning classical dance at Shiva Ganga Nritya Dhaara.",
+    "",
+    `Name: ${data.name}`,
+    `Phone: ${data.phone}`,
+    `Email: ${data.email}`,
+    data.message ? `Message: ${data.message}` : null,
+  ]
+    .filter(Boolean)
+    .join("\n");
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -19,12 +32,18 @@ export default function Contact() {
     setFormData((current) => ({ ...current, [name]: value }));
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     setIsSubmitting(true);
+
     try {
-      const result = await submitEnquiry(formData);
-      toast.success(result.message);
+      const whatsappMessage = buildWhatsAppMessage(formData);
+      const whatsappUrl = `https://wa.me/${academyInfo.contact.whatsapp}?text=${encodeURIComponent(
+        whatsappMessage
+      )}`;
+
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      toast.success("Opening WhatsApp with your enquiry message.");
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (_error) {
       toast.error("Something went wrong. Please try again.");
