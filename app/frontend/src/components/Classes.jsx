@@ -97,10 +97,25 @@ export default function Classes() {
                 </div>
                 <div>
                   <h3 className="text-4xl font-semibold text-white">Timing</h3>
-                  <p className="mt-2 text-white/56">Convenient evening slots</p>
+                  <p className="mt-2 text-white/56">{classDetails.schedule.timing}</p>
                 </div>
               </div>
-              <p className="mt-7 text-lg leading-8 text-white/72">{classDetails.schedule.timing}</p>
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                {classDetails.schedule.batches.map((batch) => (
+                  <div
+                    key={batch.label}
+                    className="rounded-[22px] border border-white/8 bg-white/[0.05] p-4"
+                  >
+                    <div className="section-heading text-[0.62rem] text-[#d7a8ff]">
+                      {batch.label}
+                    </div>
+                    <div className="mt-2 text-3xl font-semibold text-white">{batch.time}</div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-5 rounded-2xl bg-[#7b7cff]/10 px-5 py-3 text-sm font-semibold text-[#cfd2ff]">
+                Duration: {classDetails.schedule.duration}
+              </p>
             </div>
           </div>
 

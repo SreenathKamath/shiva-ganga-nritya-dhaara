@@ -85,7 +85,12 @@ export const danceStyles = [
 export const classDetails = {
   schedule: {
     days: ["Friday", "Saturday"],
-    timing: "Convenient evening slots",
+    timing: "Morning and evening batches available",
+    batches: [
+      { label: "Morning Batch", time: "10:30 AM" },
+      { label: "Evening Batch", time: "6:30 PM" },
+    ],
+    duration: "2 hours per session",
   },
   modes: [
     {
