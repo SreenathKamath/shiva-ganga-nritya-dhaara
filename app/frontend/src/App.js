@@ -13,6 +13,7 @@ import Testimonials from "./components/Testimonials";
 import CTA from "./components/CTA";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import FloatingLogoElements from "./components/FloatingLogoElements";
 import { academyInfo } from "./data/mock";
 
 function Icon({ path, className = "h-5 w-5", filled = false }) {
@@ -77,8 +78,9 @@ function App() {
 
   return (
     <div className="app-shell text-white">
+      <FloatingLogoElements />
       <Navbar />
-      <main>
+      <main className="relative z-10">
         <Hero />
         <About />
         <Instructor />
@@ -90,7 +92,9 @@ function App() {
         <CTA />
         <Contact />
       </main>
-      <Footer />
+      <div className="relative z-10">
+        <Footer />
+      </div>
 
       <button
         type="button"

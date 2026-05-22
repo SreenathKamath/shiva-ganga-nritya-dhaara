@@ -35,6 +35,8 @@ export const danceStyles = [
     name: "Bharatanatyam",
     description:
       "A classical dance form known for grace, geometry, rhythm, and expressive storytelling rooted in the Natya Shastra.",
+    flipDescription:
+      "Bharatanatyam builds precision, rhythm, posture, expression, and storytelling through structured adavus, mudras, and abhinaya. Students learn to connect discipline with devotion while developing stage confidence and cultural understanding.",
     culturalMeaning:
       "Bhava, raga, and tala meet in disciplined expression.",
     image:
@@ -46,6 +48,8 @@ export const danceStyles = [
     name: "Mohiniyattam",
     description:
       "Kerala's lyrical classical form celebrated for flowing movement, feminine grace, and gentle emotional depth.",
+    flipDescription:
+      "Mohiniyattam trains gentle body control, graceful circular movement, expressive eyes, and soft emotional storytelling. Its calm rhythm and flowing style help students develop elegance, balance, and a deeper connection to Kerala's classical heritage.",
     culturalMeaning:
       "The dance of the enchantress, rooted in softness and poise.",
     image:
@@ -57,6 +61,8 @@ export const danceStyles = [
     name: "Semi-Classical",
     description:
       "A bridge between classical discipline and modern stage expression, ideal for performers expanding creatively.",
+    flipDescription:
+      "Semi-classical dance blends the foundation of Indian classical technique with expressive choreography suited for stage, events, and creative performance. It helps students explore musicality, emotion, and presentation with more movement freedom.",
     culturalMeaning: "Tradition reinterpreted with expressive freedom.",
     image:
       "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=900&q=80",
@@ -67,6 +73,8 @@ export const danceStyles = [
     name: "Cinematic",
     description:
       "Performance-oriented choreography blending classical foundation with popular stage and screen movement.",
+    flipDescription:
+      "Cinematic dance focuses on expressive choreography, screen-inspired movement, stage presence, and confident performance. Students learn to carry rhythm, expression, and energy while keeping a graceful foundation in movement.",
     culturalMeaning: "Modern storytelling shaped by classical confidence.",
     image:
       "https://images.unsplash.com/photo-1688820661462-a44e4b2770e8?auto=format&fit=crop&w=900&q=80",

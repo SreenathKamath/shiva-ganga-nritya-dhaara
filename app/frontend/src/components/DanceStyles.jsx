@@ -21,26 +21,39 @@ export default function DanceStyles() {
           {danceStyles.map((style) => (
             <article
               key={style.id}
-              className="group neo-card overflow-hidden rounded-[30px] transition-transform duration-500 hover:-translate-y-2"
+              tabIndex={0}
+              aria-label={`${style.name}: ${style.flipDescription}`}
+              className="group h-[500px] rounded-[30px] [perspective:1400px] focus:outline-none"
             >
-              <div className="relative h-[420px] overflow-hidden">
-                <img
-                  src={style.image}
-                  alt={style.name}
-                  className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a0711] via-[#0a0711]/10 to-transparent" />
-                <div className="glass-panel absolute left-5 top-5 rounded-full px-4 py-2 text-xs font-semibold text-white/88">
-                  {style.duration}
+              <div className="relative h-full rounded-[30px] transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus:[transform:rotateY(180deg)]">
+                <div className="neo-card absolute inset-0 overflow-hidden rounded-[30px] [backface-visibility:hidden]">
+                  <img
+                    src={style.image}
+                    alt={style.name}
+                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110 group-focus:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0711] via-[#0a0711]/18 to-transparent" />
+                  <div className="glass-panel absolute left-5 top-5 rounded-full px-4 py-2 text-xs font-semibold text-white/88">
+                    {style.duration}
+                  </div>
+                  <div className="absolute inset-x-0 bottom-0 p-6">
+                    <div className="section-heading text-[0.65rem] text-[#d4a6ff]">
+                      {style.culturalMeaning}
+                    </div>
+                    <h3 className="mt-4 text-4xl font-semibold leading-none text-white">
+                      {style.name}
+                    </h3>
+                  </div>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 p-6">
-                  <h3 className="text-4xl font-semibold leading-none text-white">{style.name}</h3>
-                </div>
-              </div>
-              <div className="p-6">
-                <p className="text-sm leading-7 text-white/62">{style.description}</p>
-                <div className="mt-6 rounded-[22px] border border-white/8 bg-white/[0.03] p-4 text-sm italic leading-7 text-[#d4a6ff]">
-                  {style.culturalMeaning}
+
+                <div className="neo-card absolute inset-0 flex items-center rounded-[30px] p-7 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+                  <div className="absolute inset-0 rounded-[30px] bg-[radial-gradient(circle_at_20%_15%,rgba(255,118,191,0.18),transparent_34%),linear-gradient(145deg,rgba(13,9,23,0.98),rgba(36,13,48,0.96)_55%,rgba(11,9,20,0.98))]" />
+                  <div className="relative">
+                    <div className="mb-6 h-1 w-16 rounded-full bg-[linear-gradient(90deg,#ff76bf,#7b7cff)]" />
+                    <p className="text-xl leading-9 text-white/82 md:text-[1.05rem]">
+                      {style.flipDescription}
+                    </p>
+                  </div>
                 </div>
               </div>
             </article>
