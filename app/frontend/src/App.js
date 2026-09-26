@@ -16,6 +16,10 @@ import Footer from "./components/Footer";
 import FloatingLogoElements from "./components/FloatingLogoElements";
 import { academyInfo } from "./data/mock";
 
+const BACKGROUND_MUSIC_SRC = "/assets/audio/veena-reethigowla.mp3";
+const MUSIC_VOLUME = 0.2;
+const MUSIC_FADE_MS = 1500;
+
 function Icon({ path, className = "h-5 w-5", filled = false }) {
   return (
     <svg
@@ -36,6 +40,7 @@ function Icon({ path, className = "h-5 w-5", filled = false }) {
 function App() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef(null);
+  const fadeRef = useRef(null);
 
   const whatsAppLink = useMemo(
     () =>
@@ -46,18 +51,35 @@ function App() {
   );
 
   useEffect(() => {
-    const audio = new Audio(
-      "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-    );
+    // "Shri Nilotpala Nayike" (Raga Reethigowla) on veena by L Ramakrishnan, CC0 via Wikimedia Commons
+    const audio = new Audio(BACKGROUND_MUSIC_SRC);
     audio.loop = true;
-    audio.volume = 0.15;
+    audio.preload = "none";
+    audio.volume = 0;
     audioRef.current = audio;
 
     return () => {
+      clearInterval(fadeRef.current);
       audio.pause();
       audioRef.current = null;
     };
   }, []);
+
+  const fadeTo = (audio, target, onDone) => {
+    clearInterval(fadeRef.current);
+    const step = (target - audio.volume) / (MUSIC_FADE_MS / 50);
+
+    fadeRef.current = setInterval(() => {
+      const next = audio.volume + step;
+      if ((step >= 0 && next >= target) || (step < 0 && next <= target)) {
+        audio.volume = target;
+        clearInterval(fadeRef.current);
+        onDone?.();
+      } else {
+        audio.volume = next;
+      }
+    }, 50);
+  };
 
   const toggleMusic = async () => {
     const audio = audioRef.current;
@@ -65,11 +87,12 @@ function App() {
 
     try {
       if (isMusicPlaying) {
-        audio.pause();
         setIsMusicPlaying(false);
+        fadeTo(audio, 0, () => audio.pause());
       } else {
         await audio.play();
         setIsMusicPlaying(true);
+        fadeTo(audio, MUSIC_VOLUME);
       }
     } catch (_error) {
       setIsMusicPlaying(false);
