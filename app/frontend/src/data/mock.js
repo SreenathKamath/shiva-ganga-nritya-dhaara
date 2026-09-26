@@ -40,7 +40,7 @@ export const danceStyles = [
     culturalMeaning:
       "Bhava, raga, and tala meet in disciplined expression.",
     image:
-      "https://images.unsplash.com/photo-1746983047239-cb817eba7d05?auto=format&fit=crop&w=900&q=80",
+      "/assets/images/performance/performance_2-card.webp",
     duration: "2-3 years foundation",
   },
   {
@@ -209,10 +209,35 @@ export const galleryImages = [
   },
 ];
 
+// Instructor's Bharatanatyam performances. "-card" variants are sized for in-page cards;
+// `position` keeps the dancer in frame when a portrait photo is cropped to a wide area.
+export const performanceImages = [
+  {
+    src: "/assets/images/performance/performance_1.webp",
+    card: "/assets/images/performance/performance_1-card.webp",
+    position: "center 25%",
+  },
+  {
+    src: "/assets/images/performance/performance_2.webp",
+    card: "/assets/images/performance/performance_2-card.webp",
+    position: "center 20%",
+  },
+  {
+    src: "/assets/images/performance/performance_3.webp",
+    card: "/assets/images/performance/performance_3-card.webp",
+    position: "center 32%",
+  },
+  {
+    src: "/assets/images/performance/performance_4.webp",
+    card: "/assets/images/performance/performance_4-card.webp",
+    position: "center 10%",
+  },
+];
+
 export const heroImages = [
-  "/assets/images/gallery/background_main.webp",
-  "/assets/images/gallery/background.webp",
-  "https://images.unsplash.com/photo-1746983047239-cb817eba7d05?auto=format&fit=crop&w=1600&q=80",
+  { src: "/assets/images/gallery/background_main.webp", position: "center" },
+  { src: "/assets/images/gallery/background.webp", position: "center" },
+  ...performanceImages.map(({ src, position }) => ({ src, position })),
 ];
 
 export const submitEnquiry = async (formData) =>

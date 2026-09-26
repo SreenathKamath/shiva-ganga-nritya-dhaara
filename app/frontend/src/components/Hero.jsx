@@ -24,12 +24,17 @@ export default function Hero() {
       <div className="absolute inset-0">
         {heroImages.map((image, index) => (
           <div
-            key={image}
+            key={image.src}
             className={`absolute inset-0 transition-opacity duration-[1400ms] ${
               index === currentImageIndex ? "opacity-100" : "opacity-0"
             }`}
           >
-            <img src={image} alt="" className="h-full w-full object-cover object-center" />
+            <img
+              src={image.src}
+              alt=""
+              className="h-full w-full object-cover"
+              style={{ objectPosition: image.position }}
+            />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(150,0,255,0.18),transparent_26%),linear-gradient(115deg,rgba(4,2,11,0.94)_12%,rgba(8,5,17,0.7)_46%,rgba(7,5,15,0.88)_100%)]" />
           </div>
         ))}

@@ -1,3 +1,8 @@
+import { useEffect, useState } from "react";
+import { instructor, performanceImages } from "../data/mock";
+
+const SLIDE_INTERVAL_MS = 3000;
+
 const features = [
   {
     title: "Cultural Heritage",
@@ -18,6 +23,18 @@ const features = [
 ];
 
 export default function About() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return undefined;
+
+    const timer = window.setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % performanceImages.length);
+    }, SLIDE_INTERVAL_MS);
+    return () => window.clearInterval(timer);
+  }, []);
+
   return (
     <section id="about" className="relative py-28">
       <div className="section-orbit left-[-120px] top-[160px] bg-[#6e29ff]" />
@@ -39,11 +56,22 @@ export default function About() {
           <div className="relative">
             <div className="absolute -inset-4 rounded-[34px] bg-[linear-gradient(135deg,rgba(123,29,244,0.25),rgba(210,41,109,0.18))] blur-3xl" />
             <div className="neo-card relative overflow-hidden rounded-[34px] p-3">
-              <img
-                src="https://images.unsplash.com/photo-1746983047239-cb817eba7d05?auto=format&fit=crop&w=1200&q=80"
-                alt="Classical dance performance"
-                className="h-[620px] w-full rounded-[28px] object-cover"
-              />
+              <div className="relative h-[620px] w-full overflow-hidden rounded-[28px]">
+                {performanceImages.map((image, index) => (
+                  <img
+                    key={image.card}
+                    src={image.card}
+                    alt={`${instructor.name} performing Bharatanatyam`}
+                    aria-hidden={index !== currentSlide}
+                    loading="lazy"
+                    decoding="async"
+                    className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+                      index === currentSlide ? "opacity-100" : "opacity-0"
+                    }`}
+                    style={{ objectPosition: image.position }}
+                  />
+                ))}
+              </div>
               <div className="absolute inset-0 rounded-[34px] bg-gradient-to-t from-[#08060e] via-transparent to-transparent" />
               <div className="glass-panel absolute bottom-10 left-10 rounded-[24px] px-6 py-5">
                 <div className="section-heading text-[0.68rem] text-[#d7a8ff]">Established</div>
