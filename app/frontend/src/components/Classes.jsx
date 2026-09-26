@@ -75,17 +75,29 @@ export default function Classes() {
                 </div>
                 <div>
                   <h3 className="text-4xl font-semibold text-white">Class Days</h3>
-                  <p className="mt-2 text-white/56">Weekend batches</p>
+                  <p className="mt-2 text-white/56">Weekday and weekend batches</p>
                 </div>
               </div>
-              <div className="mt-7 flex flex-wrap gap-3">
-                {classDetails.schedule.days.map((day) => (
-                  <span
-                    key={day}
-                    className="rounded-2xl bg-[linear-gradient(135deg,#d2296d,#8b1538)] px-5 py-3 text-sm font-semibold text-white"
+              <div className="mt-7 grid gap-3">
+                {classDetails.schedule.dayGroups.map((group) => (
+                  <div
+                    key={group.styles}
+                    className="rounded-[22px] border border-white/8 bg-white/[0.05] p-4"
                   >
-                    {day}
-                  </span>
+                    <div className="section-heading text-[0.62rem] text-[#d7a8ff]">
+                      {group.styles}
+                    </div>
+                    <div className="mt-3 flex flex-wrap gap-3">
+                      {group.days.map((day) => (
+                        <span
+                          key={day}
+                          className={`rounded-2xl ${group.pillClass} px-5 py-3 text-sm font-semibold text-white`}
+                        >
+                          {day}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

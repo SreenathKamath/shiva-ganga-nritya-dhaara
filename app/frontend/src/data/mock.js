@@ -65,26 +65,37 @@ export const danceStyles = [
       "Semi-classical dance blends the foundation of Indian classical technique with expressive choreography suited for stage, events, and creative performance. It helps students explore musicality, emotion, and presentation with more movement freedom.",
     culturalMeaning: "Tradition reinterpreted with expressive freedom.",
     image:
-      "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1688820661462-a44e4b2770e8?auto=format&fit=crop&w=900&q=80",
     duration: "1-2 years",
   },
   {
     id: 4,
-    name: "Cinematic",
+    name: "Semi-Cinematic",
     description:
       "Performance-oriented choreography blending classical foundation with popular stage and screen movement.",
     flipDescription:
-      "Cinematic dance focuses on expressive choreography, screen-inspired movement, stage presence, and confident performance. Students learn to carry rhythm, expression, and energy while keeping a graceful foundation in movement.",
+      "Semi-cinematic dance focuses on expressive choreography, screen-inspired movement, stage presence, and confident performance. Students learn to carry rhythm, expression, and energy while keeping a graceful foundation in movement.",
     culturalMeaning: "Modern storytelling shaped by classical confidence.",
     image:
-      "https://images.unsplash.com/photo-1688820661462-a44e4b2770e8?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=900&q=80",
     duration: "6-12 months",
   },
 ];
 
 export const classDetails = {
   schedule: {
-    days: ["Friday", "Saturday"],
+    dayGroups: [
+      {
+        styles: "Bharatanatyam & Mohiniyattam",
+        days: ["Friday", "Saturday"],
+        pillClass: "bg-[linear-gradient(135deg,#d2296d,#8b1538)]",
+      },
+      {
+        styles: "Semi-Cinematic",
+        days: ["Tuesday", "Wednesday"],
+        pillClass: "bg-[linear-gradient(135deg,#7b1df4,#4f3bd1)]",
+      },
+    ],
     timing: "Morning and evening batches available",
     batches: [
       { label: "Morning Batch", time: "10:30 AM" },
