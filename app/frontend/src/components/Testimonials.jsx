@@ -14,20 +14,21 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {testimonials.map((testimonial, index) => (
+        <div className="grid gap-6 md:grid-cols-2">
+          {testimonials.map((testimonial) => (
             <article
               key={testimonial.id}
-              className={`neo-card rounded-[30px] p-8 transition-transform duration-300 hover:-translate-y-1 ${
-                index === 1 ? "ring-1 ring-[#7b7cff]/35" : ""
-              }`}
+              className="neo-card flex flex-col rounded-[30px] p-8 transition-transform duration-300 hover:-translate-y-1"
             >
-              <div className="mb-5 flex gap-1 text-[#ffd05c]">
+              <div
+                className="mb-5 flex gap-1 text-lg text-[#ffd05c]"
+                aria-label={`${testimonial.rating} out of 5 stars`}
+              >
                 {Array.from({ length: testimonial.rating }).map((_, starIndex) => (
-                  <span key={starIndex}>*</span>
+                  <span key={starIndex} aria-hidden="true">★</span>
                 ))}
               </div>
-              <p className="text-lg italic leading-9 text-white/72">"{testimonial.text}"</p>
+              <p className="flex-1 whitespace-pre-line text-lg italic leading-9 text-white/72">"{testimonial.text}"</p>
               <div className="mt-8 border-t border-white/8 pt-5">
                 <div className="text-3xl font-semibold text-white">{testimonial.name}</div>
                 <div className="mt-2 text-sm text-white/45">{testimonial.role}</div>
